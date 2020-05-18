@@ -1,0 +1,16 @@
+.navbar-wrapper {
+    background-color: #f1f2fa;
+    border-bottom: 1px solid #d3d3d8;
+
+    .navbar-collapse {
+        ul {
+            padding-top: 10px;
+            li {
+                vertical-align: middle;
+                padding: 0 10px;
+                font-size: .7rem;
+                cursor: pointer;
+            }
+        }
+    }
+}

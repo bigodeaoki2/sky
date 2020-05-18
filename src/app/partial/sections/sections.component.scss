@@ -1,0 +1,26 @@
+$redSky: #f35c58;
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+        height: 56px;
+        border-bottom: 8px solid transparent;
+        font-size: 1rem;
+        transition: all 105ms 0s ease-in;
+        &.active, &:hover {
+            border-bottom-color: $redSky;
+            color: $redSky;
+            a {
+                color:  $redSky;
+            }
+        }
+        a {
+            display: block;
+            font-weight: bold;
+            transition: all 105ms 0s ease-in;
+            text-decoration: none;
+        }
+    }
+}

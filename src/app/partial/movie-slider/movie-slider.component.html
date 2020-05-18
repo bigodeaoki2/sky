@@ -1,0 +1,15 @@
+<div class="slider-wrapper">
+    <div class="container">
+
+        <ngx-slick-carousel class="carousel" 
+            #slickModal="slick-carousel" 
+            [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let slide of movies; trackByFn" class="slide">
+                <div class="img">
+                    <img src="{{ slide.images[0].url }}" alt="" width="100%">
+                </div>
+            </div>
+        </ngx-slick-carousel>
+        
+    </div>
+</div>

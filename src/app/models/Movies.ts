@@ -1,4 +1,6 @@
 export interface movies {
-    type: String
+    type: Number
     title: String
+    img: String
+    producer: Number
 }
