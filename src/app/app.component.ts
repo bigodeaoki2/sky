@@ -10,7 +10,7 @@ import { movies } from './models/Movies';
 export class AppComponent implements OnInit {
   movies: any;
   highlight: any;
-  moviesCategories: any[];
+  moviesCategories: any;
   slider: movies[];
   title = 'sky';
 
@@ -18,11 +18,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.moviesService.getMovies().subscribe( movies => {
-      console.dir(movies[0]);
       this.highlight = movies[0];
+      this.moviesCategories = movies[2];
     })
 
-    this.moviesCategories = this.moviesService.getMoviesCategories().categories;
+    //this.moviesCategories = this.moviesService.getMoviesCategories().categories;
 
     this.slider = this.moviesService.getSliderMovies();
   }

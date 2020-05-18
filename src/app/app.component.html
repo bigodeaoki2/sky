@@ -10,8 +10,12 @@
         </ng-container>
     </div>
 
-    <ng-container *ngFor="let item of moviesCategories">
-        <app-movielist [title]="item.category" [movies]="item.movies"></app-movielist>
+    <ng-container *ngIf="moviesCategories">
+        <app-movielist [title]="1" [movies]="moviesCategories"></app-movielist>
+        <app-movielist [title]="2" [movies]="moviesCategories"></app-movielist>
+        <app-movielist [title]="3" [movies]="moviesCategories"></app-movielist>
+        <app-movielist [title]="4" [movies]="moviesCategories"></app-movielist>
+        <app-movielist [title]="5" [movies]="moviesCategories"></app-movielist>
     </ng-container>
     
     <app-footer></app-footer>

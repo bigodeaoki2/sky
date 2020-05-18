@@ -30,7 +30,6 @@ footer {
                 font-weight: normal;
                 line-height: 0.875rem;
                 padding: 5px 0;
-                font-family: Roboto;
             }
         }
     }
@@ -65,34 +64,33 @@ footer {
     }
 
     .stores {
-        margin-left: 60px;
-        svg {
-            color: rgba(0, 0, 0, 0.6);
-            fill: rgba(0, 0, 0, 0.6);
-            padding-right: 20px;
-            g {
-                fill: rgba(0, 0, 0, 0.6);
-            }
-            &:hover {
-                g {
-                    fill: darken(rgba(0, 0, 0, 0.6), 10)
-                }
-            }
-            &:active {
-                g {
-                    fill: darken(rgba(0, 0, 0, 0.6), 10)
-                }
-            }
-        }
+        padding-left: 60px;
         a {
-            &:active {
-                color: darken(rgba(0, 0, 0, 0.6), 10)
+            display: inline-block;
+            width: 160px;
+            height: 54px;
+            margin-right: 20px;
+            &#applestore {
+                background-image: url(https://skyplay.sky.com.br/o/sky-play-theme/images/button-apple-store-light-default.svg);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                &:hover {
+                    background-image: url(https://skyplay.sky.com.br/o/sky-play-theme/images/button-apple-store-light-over.svg);
+                }
+            }
+            &#playstore {
+                background-image: url(https://skyplay.sky.com.br/o/sky-play-theme/images/button-google-play-light-default.svg);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                &:hover {
+                    background-image: url(https://skyplay.sky.com.br/o/sky-play-theme/images/button-google-play-light-over.svg);
+                }
             }
         }
     }
     .map-wrapper {
         background-color: #fff;
-        padding: 10px 0;
+        padding: 5px 0;
         text-align: center;
         .map {
             text-align: center;

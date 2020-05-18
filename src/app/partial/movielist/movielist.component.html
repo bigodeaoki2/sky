@@ -1,10 +1,10 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="movies">
     <h1>{{ title }}</h1>
     <ngx-slick-carousel class="carousel" 
                             #slickModal="slick-carousel" 
                             [config]="slideConfig">
-        <div ngxSlickItem *ngFor="let slide of movies; trackByFn" class="slide">
-            <img src="{{ slide.img }}" alt="" width="100%">
+        <div ngxSlickItem *ngFor="let slide of list; trackByFn" class="slide">
+            <img src="{{ slide.images[0].url }}" alt="" width="100%">
         </div>
     </ngx-slick-carousel>
 </div>

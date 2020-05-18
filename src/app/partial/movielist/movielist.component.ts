@@ -8,54 +8,64 @@ import { movies } from 'src/app/models/Movies';
 })
 export class MovielistComponent implements OnInit {
 
-  @Input() movies: movies;
-  @Input() title: String;
+  @Input() movies: any;
+  @Input() title: any;
 
   public innerWidth: any;
+  list: any;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
-    this.setSliderConfigInit()
   }
-
-  slides = [
-    {img: "http://placehold.it/234x357/000000"},
-    {img: "http://placehold.it/234x357/111111"},
-    {img: "http://placehold.it/234x357/222222"},
-    {img: "http://placehold.it/234x357/333333"},
-    {img: "http://placehold.it/234x357/444444"},
-    {img: "http://placehold.it/234x357/555555"},
-    {img: "http://placehold.it/234x357/666666"},
-    {img: "http://placehold.it/234x357/777777"},
-    {img: "http://placehold.it/234x357/888888"},
-  ];
 
   slideConfig : any;
 
   constructor() { }
 
   ngOnInit() {
-    this.setSliderConfigInit();
-  }
-
-  setSliderConfigInit () {
-    if (this.innerWidth >= 1750) {
-      this.slideConfig = {"slidesToShow": 7, "slidesToScroll": 7};
-    } 
-    if (this.innerWidth >= 1300 && this.innerWidth < 1700) {
-      this.slideConfig = {"slidesToShow": 6, "slidesToScroll": 6};
-    }
-    if (this.innerWidth >= 992 && this.innerWidth < 1300) {
-      this.slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
-    }
-    if (this.innerWidth < 991) {
-      this.slideConfig = {"slidesToShow": 2, "slidesToScroll": 2};
-    }
+    this.filterByCategory();
+    this.slideConfig = {"slidesToShow": 7, "slidesToScroll": 7};
   }
 
   trackByFn (index, item) {
     return index;
+  }
+
+  filterByCategory () {
+    if (this.title === 1) {
+      this.title = "Ação";
+      this.list = this.movies.movies.filter( movie => movie.categories.includes('Ação'))
+    }
+    if (this.title === 2) {
+      this.title = "Comédia e infatil";
+      this.list = this.movies.movies.filter( movie => {
+        return (movie.categories.includes('Comédia') || movie.categories.includes('Infantil'))
+      })
+    }
+
+    if (this.title === 3) {
+      this.title = "Drama e Animação";
+      this.list = this.movies.movies.filter( movie => {
+        return (
+          movie.categories.includes('Drama') ||
+          movie.categories.includes('Animação')
+        );
+      })
+    }            
+    if (this.title === 4) {
+      this.title = "Ficção Científica e Fantasia";
+      this.list = this.movies.movies.filter( movie => {
+        return (
+          movie.categories.includes('Ficção Científica') ||
+          movie.categories.includes('Fantasia')
+        );
+      })
+    }
+    if (this.title === 5) {
+      this.title = "Musical";
+      this.list = this.movies.movies.filter( movie => movie.categories.includes('Musical'))
+    }         
   }
 
 }
